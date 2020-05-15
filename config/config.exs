@@ -36,13 +36,13 @@ config :phoenix, :json_library, Jason
 config :bamboo, :json_library, Jason
 config :tixco_api, Tixco.Mailer,
   adapter: Bamboo.SendGridAdapter,
-  api_key: "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",
+  api_key: System.get_env("SEND_GRID_API_KEY"),
   sand_box: true # in development only
 
 # Twilio using ExTwillio
 config :ex_twilio,
-  account_sid: "AC1e9d154d7528f0c4b23618625b86ed92", # System.get_env("TWILIO_ACCOUNT_SID"),
-  auth_token: "4457044c476296fd96412d1fea1c2eac" # System.get_env("TWILIO_AUTH_TOKEN")
+  account_sid: System.get_env("TWILIO_ACCOUNT_SID"),
+  auth_token: System.get_env("TWILIO_AUTH_TOKEN")
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
